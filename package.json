@@ -1,0 +1,25 @@
+{
+  "name": "NodejsTraining",
+  "version": "1.0.0",
+  "description": "in this repo, a training to improve Node.js development is performed, by taking hands on several exercises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JudasII/NodejsTraining.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JudasII/NodejsTraining/issues"
+  },
+  "homepage": "https://github.com/JudasII/NodejsTraining#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.6.0",
+    "popper": "^1.0.1"
+  }
+}
