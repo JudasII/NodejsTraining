@@ -25,15 +25,23 @@ app.get('/messages', (req,res)=>{
 
 app.post('/messages', (req,res)=>{
     var message = new Message(req.body)
-    message.save(err =>{
-        if(err)
-            sendStatus(500)
+    message.save()
+    .then(()=>
+        Message.findOne({message:'courses'})
+    )
+    .then(censored =>{
+        if (censored)
+            return Message.deleteOne({_id: censored.id})
         io.emit('message',req.body)
         res.sendStatus(200)
     })
-
+    .catch(() =>
+        sendStatus(500)
+    )
 })
+
 mongoose.connect(conString, {useNewUrlParser:true, useUnifiedTopology:true }, err => console.log('mongodb connection: ', err))
+
 var server = http.listen(3000, ()=>
     console.log('server is listening to port ', server.address().port)
 )
